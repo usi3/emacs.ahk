@@ -6,7 +6,7 @@ I have used and maintained this script since Sep 21, 2007.
 ## Supported keybindings
 <table>
   <tr>
-    <th>Keybing</th>
+    <th>Keybinding</th>
     <th>Function(Emacs Lisp)</th>
   </tr>
 <tr>
