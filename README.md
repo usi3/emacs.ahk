@@ -1,15 +1,13 @@
 # emacs.ahk
-An autohotkey script that provides emacs-like keybinding on Windows. 
+An autohotkey script that provides emacs-like keybindings on Windows. 
 Feel free to improve and commit.
-
 I have used and maintained this script since Sep 21, 2007. 
-
 
 ## Support keybindings
 <table>
   <th>
-    <td>Keybing</td>
-    <td>Function(Emacs Lisp)</td>
+    <th>Keybing</th>
+    <th>Function(Emacs Lisp)</th>
   </th>
 <tr>
 <td>C-Space</td>
@@ -123,12 +121,8 @@ I have used and maintained this script since Sep 21, 2007.
 
 
 ## Webpages introducing this script
-* AutoHotkeyでemacs風キーバインド - torutkの日記
-    * http://d.hatena.ne.jp/torutk/20101009/p2
+* [AutoHotkeyでemacs風キーバインド - torutkの日記](http://d.hatena.ne.jp/torutk/20101009/p2)
 * オダろぐ : Emacs＞AutoHotKey の Emacsモードを使うことにした
-    * http://blog.livedoor.jp/odaxsen/archives/1546840.html
-* AutoHotkey &laquo; sea side she side
-    * http://www.a10i.jp/?tag=autohotkey
-* NTEmacs @ ウィキ - Windows の操作を emacs のキーバインドで行う設定 （AutoHotKey版）
-    * http://www49.atwiki.jp/ntemacs/pages/20.html
+* [AutoHotkey &laquo; sea side she side](http://www.a10i.jp/?tag=autohotkey)
+* [NTEmacs @ ウィキ - Windows の操作を emacs のキーバインドで行う設定 （AutoHotKey版）](http://www49.atwiki.jp/ntemacs/pages/20.html)
     * customized by 2cher
