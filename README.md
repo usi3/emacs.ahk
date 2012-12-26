@@ -5,10 +5,10 @@ I have used and maintained this script since Sep 21, 2007.
 
 ## Support keybindings
 <table>
-  <th>
+  <tr>
     <th>Keybing</th>
     <th>Function(Emacs Lisp)</th>
-  </th>
+  </tr>
 <tr>
 <td>C-Space</td>
 <td>set-mark-command</td>
