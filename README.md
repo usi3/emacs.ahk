@@ -3,7 +3,7 @@ An autohotkey script that provides emacs-like keybindings on Windows.
 Feel free to improve and commit.
 I have used and maintained this script since Sep 21, 2007. 
 
-## Support keybindings
+## Supported keybindings
 <table>
   <tr>
     <th>Keybing</th>
