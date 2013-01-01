@@ -4,6 +4,10 @@
 #InstallKeybdHook
 #UseHook
 
+; Ripped from http://www49.atwiki.jp/ntemacs/pages/20.html
+; Thanks a lot!
+SetKeyDelay 0
+
 ; turns to be 1 when ctrl-x is pressed
 is_pre_x = 0
 ; turns to be 1 when ctrl-space is pressed
