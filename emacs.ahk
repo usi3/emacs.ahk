@@ -58,7 +58,7 @@ delete_backward_char()
 kill_line()
 {
   Send {ShiftDown}{END}{SHIFTUP}
-  Sleep 10 ;[ms]
+  Sleep 50 ;[ms] this value depends on your environment
   Send ^x
   global is_pre_spc = 0
   Return
