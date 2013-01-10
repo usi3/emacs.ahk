@@ -36,10 +36,12 @@ is_target()
 ;     Return 1
 ;   IfWinActive,ahk_class SunAwtFrame
 ;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
+   IfWinActive,ahk_class Emacs ; NTEmacs
+     Return 1  
 ;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
 ;     Return 1
+   IfWinActive,ahk_class TXGuiFoundation; QQ
+      Return 1
   Return 0
 }
 
@@ -239,15 +241,15 @@ scroll_down()
       forward_char()
   }
   Return  
-^c::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-  {
-    If is_pre_x
-      kill_emacs()
-  }
-  Return  
+; ^c::
+;   If is_target()
+;     Send %A_ThisHotkey%
+;   Else
+;   {
+;     If is_pre_x
+;       kill_emacs()
+;   }
+;   Return  
 ^d::
   If is_target()
     Send %A_ThisHotkey%
@@ -339,7 +341,8 @@ scroll_down()
   Return  
   
 ;$^{Space}::
-^vk20sc039::
+;^vk20sc039::
+^t::
   If is_target()
     Send {CtrlDown}{Space}{CtrlUp}
   Else
@@ -391,12 +394,12 @@ scroll_down()
   Else
     backward_char()
   Return
-^v::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    scroll_down()
-  Return
+; ^v::
+;   If is_target()
+;     Send %A_ThisHotkey%
+;   Else
+;     scroll_down()
+;   Return
 !v::
   If is_target()
     Send %A_ThisHotkey%

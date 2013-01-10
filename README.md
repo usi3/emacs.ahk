@@ -1,7 +1,8 @@
 # emacs.ahk
 An autohotkey script that provides emacs-like keybindings on Windows. 
 Feel free to improve and commit.
-I have used and maintained this script since Sep 21, 2007. 
+I have used and maintained this script since Sep 21, 2007.
+lynnux:slightly modified for my habit. Don't know why C-c copying not working correct when C-x C-c is enabled.
 
 ## Supported keybindings
 <table>
@@ -10,7 +11,7 @@ I have used and maintained this script since Sep 21, 2007.
     <th>Function(Emacs Lisp)</th>
   </tr>
 <tr>
-<td>C-Space</td>
+<td>C-t</td>
 <td>set-mark-command</td>
 </tr>
 <tr>
@@ -26,8 +27,8 @@ I have used and maintained this script since Sep 21, 2007.
 <td>save-buffer</td>
 </tr>
 <tr>
-<td>C-x C-c</td>
-<td>kill-emacs</td>
+<td>--C-x C-c--</td>
+<td>--kill-emacs--</td>
 </tr>
 <tr>
 <td>C-d</td>
@@ -110,8 +111,8 @@ I have used and maintained this script since Sep 21, 2007.
 <td>backward-char</td>
 </tr>
 <tr>
-<td>C-v</td>
-<td>scroll-down</td>
+<td>--C-v--</td>
+<td>--scroll-down--</td>
 </tr>
 <tr>
 <td>M-v</td>
