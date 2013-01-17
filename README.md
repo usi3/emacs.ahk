@@ -2,6 +2,7 @@
 An autohotkey script that provides emacs-like keybindings on Windows. 
 Feel free to improve and commit.
 I have used and maintained this script since Sep 21, 2007.
+
 lynnux:slightly modified for my habit. Don't know why C-c copying not working correct when C-x C-c is enabled.
 
 ## Supported keybindings
@@ -27,16 +28,22 @@ lynnux:slightly modified for my habit. Don't know why C-c copying not working co
 <td>save-buffer</td>
 </tr>
 <tr>
-<td>--C-x C-c--</td>
-<td>--kill-emacs--</td>
+<td>C-x C-c</td>
+<td>kill-emacs</td>
 </tr>
 <tr>
 <td>C-d</td>
 <td>delete-char</td>
 </tr>
+<td>M-d</td>
+<td>kill-word</td>
+</tr>
 <tr>
 <td>C-h</td>
 <td>delete-backward-char</td>
+</tr>
+<td>M-h</td>
+<td>backward-kill-word</td>
 </tr>
 <tr>
 <td>C-k</td>
@@ -106,13 +113,19 @@ lynnux:slightly modified for my habit. Don't know why C-c copying not working co
 <td>C-f</td>
 <td>forward-char</td>
 </tr>
+<td>M-f</td>
+<td>forward-word</td>
+</tr>
 <tr>
 <td>C-b</td>
 <td>backward-char</td>
 </tr>
+<td>M-b</td>
+<td>backward-word</td>
+</tr>
 <tr>
-<td>--C-v--</td>
-<td>--scroll-down--</td>
+<td><STRIKE>C-v</STRIKE></td>
+<td><STRIKE>scroll-down</STRIKE></td>
 </tr>
 <tr>
 <td>M-v</td>
