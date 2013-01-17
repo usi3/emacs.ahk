@@ -3,7 +3,7 @@ An autohotkey script that provides emacs-like keybindings on Windows.
 Feel free to improve and commit.
 I have used and maintained this script since Sep 21, 2007.
 
-lynnux:slightly modified for my habit. Don't know why C-c copying not working correct when C-x C-c is enabled.
+lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 
 ## Supported keybindings
 <table>
@@ -122,10 +122,6 @@ lynnux:slightly modified for my habit. Don't know why C-c copying not working co
 </tr>
 <td>M-b</td>
 <td>backward-word</td>
-</tr>
-<tr>
-<td><STRIKE>C-v</STRIKE></td>
-<td><STRIKE>scroll-down</STRIKE></td>
 </tr>
 <tr>
 <td>M-v</td>
