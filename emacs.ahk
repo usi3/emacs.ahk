@@ -40,7 +40,9 @@ is_target()
      Return 1  
 ;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
 ;     Return 1
-   IfWinActive,ahk_class TXGuiFoundation; QQ
+   IfWinActive,ahk_class TXGuiFoundation ; QQ注意这个注释符号，前面必须有个空格
+      Return 1
+   IfWinActive,ahk_class Chrome_WidgetWin_1 ; 
       Return 1
   Return 0
 }
