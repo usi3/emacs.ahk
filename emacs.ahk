@@ -346,7 +346,7 @@ scroll_down()
 ;^vk20sc039::
 ^t::
   If is_target()
-    Send {CtrlDown}{Space}{CtrlUp}
+    Send %A_ThisHotkey%
   Else
   {
     If is_pre_spc
