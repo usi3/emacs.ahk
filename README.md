@@ -32,6 +32,18 @@ lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 <td>kill-emacs</td>
 </tr>
 <tr>
+<td>C-x C-y</td>
+<td>yank-pop</td>
+</tr>
+<tr>
+<td>C-x C-h</td>
+<td>mark-whole-buffer</td>
+</tr>
+<tr>
+<td>C-x C-p</td>
+<td>mark-page</td>
+</tr>
+<tr>
 <td>C-d</td>
 <td>delete-char</td>
 </tr>
@@ -47,7 +59,7 @@ lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 </tr>
 <tr>
 <td>C-k</td>
-<td>kill-line</td>
+<td>kill-line, if caret is at the end of the line, then delete the "`r`n"</td>
 </tr>
 <tr>
 <td>C-o</td>
@@ -79,7 +91,7 @@ lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 </tr>
 <tr>
 <td>C-w</td>
-<td>kill-region</td>
+<td>kill-region, if nothing selected, then cut the whole line</td>
 </tr>
 <tr>
 <td>M-w</td>
@@ -92,6 +104,10 @@ lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 <tr>
 <td>C-/</td>
 <td>undo</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td>redo, equal to native C-y</td>
 </tr>
 <tr>
 <td>C-a</td>

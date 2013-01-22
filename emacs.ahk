@@ -45,7 +45,14 @@ is_target()
    IfWinActive,ahk_class Chrome_WidgetWin_1 ;                         
       Return 1                                                        
   Return 0                                                            
-}                                                                     
+}
+
+is_vs()
+{
+  IfWinActive, ahk_class wndclass_desked_gsk ; vs2008
+   Return 1
+  Return 0   
+}
                                                                       
 delete_char()                                                         
 {                                                                     
@@ -72,12 +79,25 @@ backward_kill_word()
   Return                                                              
 }                                                                    
 kill_line()                                                           
-{                                                                     
-  Send {ShiftDown}{END}{SHIFTUP}                                      
-  Sleep 50 ;[ms] this value depends on your environment               
-  Send ^x                                                             
-  global is_pre_spc = 0                                               
-  Return                                                              
+{
+  global is_pre_spc = 0
+  If is_vs()
+  {
+    Send +{END}^x
+   }
+   Else
+   {
+     ClipBoard = ;
+     Send, +{Right}^c
+     Sleep, 100
+     if (Clipboard = "`r`n")
+     {
+       Send ^x
+      }
+     Else
+      Send +{END}^x
+   }
+   Return                                                           
 }                                                                     
 open_line()                                                           
 {                                                                     
@@ -122,29 +142,65 @@ isearch_backward()
   Return                                                              
 }                                                                     
 kill_region()                                                         
-{                                                                     
-  Send ^x                                                             
-  global is_pre_spc = 0                                               
-  Return                                                              
+{
+  global is_pre_spc = 0
+  If is_vs()
+  {
+    Send ^x
+   }
+   Else ; if not select any words, cut the line
+   {
+     ClipBoard = ;
+     Send ^c
+     Sleep, 100
+     if (Clipboard = "")
+     {
+       Send, {Home}+{Left}^c
+       Sleep, 100
+       if (Clipboard = "`r`n")
+        Send, {Right}+{End}+{Right}^x
+       Else
+        Send, {Home 2}+{End}+{Right}^x
+      }
+     Else
+      Send ^x
+   }
+   Return
 }                                                                     
-kill_ring_save()                                                      
-{                                                                     
+kill_ring_save()
+{
   Send ^c                                                             
   global is_pre_spc = 0                                               
   Return                                                              
 }                                                                     
-yank()                                                                
-{                                                                     
-  Send ^v                                                             
+yank()
+{
+  Send ^v
   global is_pre_spc = 0                                               
-  Return                                                              
-}                                                                     
+  Return
+}
+yank_pop()
+{
+  If is_vs()
+    Send ^+{Insert}
+  Else
+    Send ^v
+  global is_pre_spc = 0
+  global is_pre_x = 0                                               
+  Return
+}                                                                    
 undo()                                                                
 {                                                                     
   Send ^z                                                             
   global is_pre_spc = 0                                               
   Return                                                              
-}                                                                     
+}            
+redo() ; in most editor
+{
+  Send ^y 
+  global is_pre_spc = 0   
+  Return
+}                                                         
 find_file()                                                           
 {                                                                     
   Send ^o                                                             
@@ -153,17 +209,28 @@ find_file()
 }                                                                     
 save_buffer()                                                         
 {                                                                     
-  Send, ^s                                                            
+  Send ^s                                                            
   global is_pre_x = 0                                                 
   Return                                                              
-}                                                                     
+}
+mark_whole_buffer()
+{
+  Send ^a                                              
+  global is_pre_x = 0
+  Return
+}  
+mark_page()
+{
+  Send ^a                                              
+  global is_pre_x = 0
+  Return
+}                                                              
 kill_emacs()                                                          
 {                                                                     
   Send !{F4}                                                          
   global is_pre_x = 0                                                 
   Return                                                              
-}                                                                     
-                                                                      
+}
 move_beginning_of_line()                                              
 {                                                                     
   global                                                              
@@ -289,7 +356,24 @@ scroll_down()
     Else                                                              
       Send %A_ThisHotkey%                                             
   }                                                                   
-  Return                                                              
+  Return
+^h::
+  If is_target()                                                      
+    Send %A_ThisHotkey%                                               
+  Else
+  {
+    If is_pre_x
+      mark_whole_buffer()
+    Else
+      delete_backward_char()
+  }
+  Return
+!h::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    backward_kill_word()
+  Return
 ^d::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
@@ -301,19 +385,8 @@ scroll_down()
     Send %A_ThisHotkey%                                               
   Else                                                                
     kill_word()                                                     
-  Return                                                            
-^h::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    delete_backward_char()                                            
-  Return   
-!h::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    backward_kill_word()                                            
-  Return                                                            
+  Return                                                              
+
 ^k::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
@@ -379,19 +452,30 @@ scroll_down()
   Else                                                                
     kill_ring_save()                                                  
   Return                                                              
-^y::                                                                  
+^y::
   If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    yank()                                                            
-  Return                                                              
+    Send %A_ThisHotkey%
+  Else
+  {
+    If is_pre_x
+      yank_pop() ; !y don't work
+    Else
+      yank()
+  }
+  Return
 ^/::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
   Else                                                                
     undo()                                                            
   Return                                                              
-                                                                      
+^u::                                                                  
+  If is_target()                                                      
+    Send %A_ThisHotkey%                                               
+  Else                                                                
+    redo()                                                            
+  Return 
+                                                                        
 ;$^{Space}::                                                          
 ;^vk20sc039::                                                         
 ^t::                                                                  
@@ -421,7 +505,7 @@ scroll_down()
     Send %A_ThisHotkey%                                               
   Else                                                                
     move_beginning_of_line()                                          
-  Return                                                              
+  Return                                                           
 ^e::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
@@ -431,8 +515,13 @@ scroll_down()
 ^p::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
-  Else                                                                
-    previous_line()                                                   
+  Else
+  {
+    If is_pre_x
+      mark_page()
+    Else
+      previous_line()
+  }
   Return                                                              
 ^n::                                                                  
   If is_target()                                                      
