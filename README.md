@@ -28,9 +28,6 @@ lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 <td>save-buffer</td>
 </tr>
 <tr>
-<td>C-x C-c</td>
-<td>kill-emacs</td>
-</tr>
 <tr>
 <td>C-x C-y</td>
 <td>yank-pop</td>
