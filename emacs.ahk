@@ -43,7 +43,11 @@ is_target()
    IfWinActive,ahk_class TXGuiFoundation ; QQ注意这个注释符号，前面必须有个空格        
       Return 1                                                        
    IfWinActive,ahk_class Chrome_WidgetWin_1 ;                         
-      Return 1                                                        
+      Return 1                                                  
+   IfWinActive, ahk_class 360se5_Frame
+	  Return 1 
+   IfWinActive, ahk_class Chrome_WidgetWin_0
+      Return 1      
   Return 0                                                            
 }
 
@@ -346,17 +350,17 @@ scroll_down()
   Else                                                                
     forward_word()                                                    
   Return                                                              
-^c::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-  {                                                                   
-    If is_pre_x                                                       
-      kill_emacs()                                                    
-    Else                                                              
-      Send %A_ThisHotkey%                                             
-  }                                                                   
-  Return
+;^c::                                                                  
+;  If is_target()                                                      
+;    Send %A_ThisHotkey%                                               
+;  Else                                                                
+;  {                                                                   
+;    If is_pre_x                                                       
+;      kill_emacs()                                                    
+;    Else                                                              
+;      Send %A_ThisHotkey%                                             
+;  }                                                                   
+;  Return
 ^h::
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
