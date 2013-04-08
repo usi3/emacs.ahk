@@ -48,6 +48,8 @@ is_target()
 	  Return 1 
    IfWinActive, ahk_class Chrome_WidgetWin_0
       Return 1      
+   IfWinActive, ahk_class fengyue ; ollydbg with StrongOD plugin
+      Return 1
   Return 0                                                            
 }
 
