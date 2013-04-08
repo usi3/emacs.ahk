@@ -1,7 +1,9 @@
 # emacs.ahk
 An autohotkey script that provides emacs-like keybindings on Windows. 
 Feel free to improve and commit.
-I have used and maintained this script since Sep 21, 2007. 
+I have used and maintained this script since Sep 21, 2007.
+
+lynnux:slightly modified for my habit, add M-b, M-f, M-h, M-d
 
 ## Supported keybindings
 <table>
@@ -10,7 +12,7 @@ I have used and maintained this script since Sep 21, 2007.
     <th>Function(Emacs Lisp)</th>
   </tr>
 <tr>
-<td>C-Space</td>
+<td>C-t</td>
 <td>set-mark-command</td>
 </tr>
 <tr>
@@ -26,20 +28,35 @@ I have used and maintained this script since Sep 21, 2007.
 <td>save-buffer</td>
 </tr>
 <tr>
-<td>C-x C-c</td>
-<td>kill-emacs</td>
+<tr>
+<td>C-x C-y</td>
+<td>yank-pop</td>
+</tr>
+<tr>
+<td>C-x C-h</td>
+<td>mark-whole-buffer</td>
+</tr>
+<tr>
+<td>C-x C-p</td>
+<td>mark-page</td>
 </tr>
 <tr>
 <td>C-d</td>
 <td>delete-char</td>
 </tr>
+<td>M-d</td>
+<td>kill-word</td>
+</tr>
 <tr>
 <td>C-h</td>
 <td>delete-backward-char</td>
 </tr>
+<td>M-h</td>
+<td>backward-kill-word</td>
+</tr>
 <tr>
 <td>C-k</td>
-<td>kill-line</td>
+<td>kill-line, if caret is at the end of the line, then delete the "`r`n"</td>
 </tr>
 <tr>
 <td>C-o</td>
@@ -71,7 +88,7 @@ I have used and maintained this script since Sep 21, 2007.
 </tr>
 <tr>
 <td>C-w</td>
-<td>kill-region</td>
+<td>kill-region, if nothing selected, then cut the whole line</td>
 </tr>
 <tr>
 <td>M-w</td>
@@ -84,6 +101,10 @@ I have used and maintained this script since Sep 21, 2007.
 <tr>
 <td>C-/</td>
 <td>undo</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td>redo, equal to native C-y</td>
 </tr>
 <tr>
 <td>C-a</td>
@@ -105,13 +126,15 @@ I have used and maintained this script since Sep 21, 2007.
 <td>C-f</td>
 <td>forward-char</td>
 </tr>
+<td>M-f</td>
+<td>forward-word</td>
+</tr>
 <tr>
 <td>C-b</td>
 <td>backward-char</td>
 </tr>
-<tr>
-<td>C-v</td>
-<td>scroll-down</td>
+<td>M-b</td>
+<td>backward-word</td>
 </tr>
 <tr>
 <td>M-v</td>
