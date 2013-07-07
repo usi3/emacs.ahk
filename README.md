@@ -127,3 +127,4 @@ I have used and maintained this script since Sep 21, 2007.
 * [NTEmacs @ ウィキ - Windows の操作を emacs のキーバインドで行う設定 （AutoHotKey版）](http://www49.atwiki.jp/ntemacs/pages/20.html)
     * customized by 2cher
 * [WindowsでEmacs風キーバインド - Usipedia](http://usi3.com/index.php?title=Windows%E3%81%A7Emacs%E9%A2%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89)
+    * My web site
