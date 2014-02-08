@@ -4,8 +4,7 @@
 #InstallKeybdHook
 #UseHook
 
-; Ripped from http://www49.atwiki.jp/ntemacs/pages/20.html
-; Thanks a lot!
+; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
 
 ; turns to be 1 when ctrl-x is pressed
