@@ -1,4 +1,6 @@
-# emacs.ahk (since Sep 21, 2007.)
+# emacs.ahk 
+since Sep 21, 2007.
+
 An autohotkey script that provides emacs-like keybindings on Windows. 
 Feel free to commit this repository.
 
