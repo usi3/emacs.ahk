@@ -1,8 +1,7 @@
 # emacs.ahk 
-since Sep 21, 2007.
+Allows you to use emacs-like key bindings on Windows environment.
 
-An autohotkey script that provides emacs-like keybindings on Windows. 
-Feel free to commit this repository.
+This script is written in AutoHotkey (AHK) and has been maintained since Sep 21, 2007.
 
 ## Supported keybindings
 <table>
