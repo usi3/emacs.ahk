@@ -493,12 +493,12 @@ scroll_down()
   Else                                                                
     undo()                                                            
   Return                                                              
-^u::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    redo()                                                            
-  Return 
+; ^u::                                                                  
+;   If is_target()                                                      
+;     Send %A_ThisHotkey%                                               
+;   Else                                                                
+;     redo()                                                            
+;   Return 
                                                                         
 ;$^{Space}::                                                          
 ;^vk20sc039::                                                         
