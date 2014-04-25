@@ -3,7 +3,7 @@
 ;;                                                                    
 #InstallKeybdHook                                                     
 #UseHook                                                              
-                                                                      
+#NoTrayIcon                                                                      
 ; Ripped from http://www49.atwiki.jp/ntemacs/pages/20.html            
 ; Thanks a lot!                                                       
 SetKeyDelay 0                                                         
@@ -49,6 +49,8 @@ is_target()
    IfWinActive, ahk_class Chrome_WidgetWin_0
       Return 1      
    IfWinActive, ahk_class fengyue ; ollydbg with StrongOD plugin
+      Return 1
+   IfWinActive, ahk_class OllyDbg
       Return 1
    IfWinActive, ahk_exe doublecmd.exe
       Return 1
@@ -433,18 +435,18 @@ scroll_down()
 ;;   Else                                                             
 ;;     newline_and_indent()                                           
 ;;   Return                                                           
-^m::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    newline()                                                         
-  Return                                                              
-^i::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    indent_for_tab_command()                                          
-  Return                                                              
+; ^m::                                                                  
+;   If is_target()                                                      
+;     Send %A_ThisHotkey%                                               
+;   Else                                                                
+;     newline()                                                         
+;   Return                                                              
+; ^i::                                                                  
+;   If is_target()                                                      
+;     Send %A_ThisHotkey%                                               
+;   Else                                                                
+;     indent_for_tab_command()                                          
+;   Return                                                              
 ^s::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
