@@ -7,6 +7,7 @@
 ; Ripped from http://www49.atwiki.jp/ntemacs/pages/20.html            
 ; Thanks a lot!                                                       
 SetKeyDelay 0                                                         
+SetTitleMatchMode RegEx ; 设置用regex匹配窗口标题，vs2010以上需要
                                                                       
 ; turns to be 1 when ctrl-x is pressed                                
 is_pre_x = 0                                                          
@@ -60,6 +61,8 @@ is_target()
 is_vs()
 {
   IfWinActive, ahk_class wndclass_desked_gsk ; vs2008
+   Return 1
+  IfWinActive, ahk_class HwndWrapper\[DefaultDomain.*
    Return 1
   Return 0   
 }
