@@ -22,23 +22,18 @@ is_target()
     Return 1 
   IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0
     Return 1
-  IfWinActive,ahk_class MozillaUIWindowClass ; keysnail on Firefox
+  IfWinActive,ahk_class MozillaWindowClass ;Firefox
     Return 1
-  ; Avoid VMwareUnity with AutoHotkey
   IfWinActive,ahk_class VMwareUnityHostWndClass
     Return 1
   IfWinActive,ahk_class Vim ; GVIM
     Return 1
-;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
-;    Return 1
-;   IfWinActive,ahk_class Xming X
-;     Return 1
-;   IfWinActive,ahk_class SunAwtFrame
-;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
-;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
-;     Return 1
+  IfWinActive,ahk_class Emacs
+    Return 1
+  IfWinActive,ahk_class TTOTAL_CMD
+    Return 1
+  IfWinActive,ahk_exe idea64.exe
+    Return 1  
   Return 0
 }
 
@@ -165,6 +160,24 @@ move_end_of_line()
     Send {END}
   Return
 }
+move_to_beginning()
+{
+  global
+  if is_pre_spc
+    Send +^{HOME}
+  Else
+    Send ^{HOME}
+  Return
+}
+move_to_end()
+{
+  global
+  if is_pre_spc
+    Send +^{END}
+  Else
+    Send ^{END}
+  Return
+}
 previous_line()
 {
   global
@@ -201,6 +214,25 @@ backward_char()
     Send {Left}
   Return
 }
+forward_word()
+{
+  global
+  if is_pre_spc
+    Send +^{Right}
+  Else
+    Send ^{Right}
+  Return
+}
+backward_word()
+{
+  global
+  if is_pre_spc
+    Send +^{Left}
+  Else
+    Send ^{Left}
+  Return
+}
+
 scroll_up()
 {
   global
@@ -402,4 +434,27 @@ scroll_down()
   Else
     scroll_up()
   Return
-
+!f::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    forward_word()
+  Return
+!b::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    backward_word()
+  Return
+!<::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    move_to_beginning()
+  Return
+!>::
+    If is_target()
+    Send %A_ThisHotkey%
+  Else
+    move_to_end()
+  Return
