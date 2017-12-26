@@ -30,6 +30,10 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>kill-emacs</td>
 </tr>
 <tr>
+<td>C-x h</td>
+<td>select-all</td>
+</tr>
+<tr>
 <td>C-d</td>
 <td>delete-char</td>
 </tr>

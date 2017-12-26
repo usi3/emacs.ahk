@@ -67,6 +67,7 @@ quit()
 {
   Send {ESC}
   global is_pre_spc = 0
+  global is_pre_x = 0
   Return
 }
 newline()
@@ -138,6 +139,13 @@ save_buffer()
 kill_emacs()
 {
   Send !{F4}
+  global is_pre_x = 0
+  Return
+}
+
+select_all()
+{
+  Send ^a
   global is_pre_x = 0
   Return
 }
@@ -453,8 +461,19 @@ scroll_down()
     move_to_beginning()
   Return
 !>::
-    If is_target()
+  If is_target()
     Send %A_ThisHotkey%
   Else
     move_to_end()
+  Return
+h::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+  {
+    if is_pre_x
+      select_all()
+    Else
+      Send %A_ThisHotkey%
+  }
   Return
