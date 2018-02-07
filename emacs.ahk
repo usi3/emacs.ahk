@@ -33,7 +33,15 @@ is_target()
   IfWinActive,ahk_class TTOTAL_CMD
     Return 1
   IfWinActive,ahk_exe idea64.exe
-    Return 1  
+    Return 1
+  ; IfWinActive,ahk_exe EXCEL.EXE
+  ;   Return 1
+  IfWinActive,ahk_exe ConEmu64.exe
+    Return 1
+  IfWinActive,ahk_exe PUTTY.EXE
+    Return 1
+  IfWinActive,ahk_exe Balsamiq Mockups 3.exe
+    Return 1
   Return 0
 }
 
@@ -378,17 +386,18 @@ scroll_down()
   Return  
   
 ;$^{Space}::
-^vk20sc039::
-  If is_target()
-    Send {CtrlDown}{Space}{CtrlUp}
-  Else
-  {
-    If is_pre_spc
-      is_pre_spc = 0
-    Else
-      is_pre_spc = 1
-  }
-  Return
+; ^vk20sc039::
+;   If is_target()
+;     Send {CtrlDown}{Space}{CtrlUp}
+;   Else
+;   {
+;     If is_pre_spc
+;       is_pre_spc = 0
+;     Else
+;       is_pre_spc = 1
+;   }
+;   Return
+  
 ^@::
   If is_target()
     Send %A_ThisHotkey%
@@ -476,4 +485,16 @@ h::
     Else
       Send %A_ThisHotkey%
   }
+  Return
+<#c::
+  kill_ring_save()
+  Return
+<#x::
+  kill_region()
+  Return
+<#v::
+  yank()
+  Return
+<#a::
+  select_all()
   Return

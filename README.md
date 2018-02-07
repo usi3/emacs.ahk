@@ -137,6 +137,24 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>M-></td>
 <td>goto end</td>
 </tr>
+
+
+<tr>
+<td>W-c</td>
+<td>copy</td>
+</tr>
+<tr>
+<td>W-x</td>
+<td>cut</td>
+</tr>
+<tr>
+<td>W-v</td>
+<td>paste</td>
+</tr>
+<tr>
+<td>W-a</td>
+<td>select-all</td>
+</tr>
 </table>
 
 
