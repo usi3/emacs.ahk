@@ -30,6 +30,10 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>kill-emacs</td>
 </tr>
 <tr>
+<td>C-x h</td>
+<td>select-all</td>
+</tr>
+<tr>
 <td>C-d</td>
 <td>delete-char</td>
 </tr>
@@ -110,12 +114,46 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>backward-char</td>
 </tr>
 <tr>
+<td>M-f</td>
+<td>forward-word</td>
+</tr>
+<tr>
+<td>M-b</td>
+<td>backward-word</td>
+</tr>
+<tr>
 <td>C-v</td>
 <td>scroll-down</td>
 </tr>
 <tr>
 <td>M-v</td>
 <td>scroll-up</td>
+</tr>
+<tr>
+<td>M-<</td>
+<td>goto home</td>
+</tr>
+<tr>
+<td>M-></td>
+<td>goto end</td>
+</tr>
+
+
+<tr>
+<td>W-c</td>
+<td>copy</td>
+</tr>
+<tr>
+<td>W-x</td>
+<td>cut</td>
+</tr>
+<tr>
+<td>W-v</td>
+<td>paste</td>
+</tr>
+<tr>
+<td>W-a</td>
+<td>select-all</td>
 </tr>
 </table>
 
