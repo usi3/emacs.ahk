@@ -338,7 +338,8 @@ scroll_down()
   Return  
   
 ;$^{Space}::
-^vk20sc039::
+;^vk20sc039::
+^vk20::
   If is_target()
     Send {CtrlDown}{Space}{CtrlUp}
   Else
